@@ -1046,13 +1046,20 @@ void LaserMapping::publishResult()
   if (_mapFrameCount >= _mapFrameNum) {
     _mapFrameCount = 0;
 
-    // accumulate map cloud
+    // // accumulate map cloud
+    // _laserCloudSurround->clear();
+    // size_t laserCloudSurroundNum = _laserCloudSurroundInd.size();
+    // for (int i = 0; i < laserCloudSurroundNum; i++) {
+    //   size_t ind = _laserCloudSurroundInd[i];
+    //   *_laserCloudSurround += *_laserCloudCornerArray[ind];
+    //   *_laserCloudSurround += *_laserCloudSurfArray[ind];
+    // }
+
+    // accumulate full map clouEd
     _laserCloudSurround->clear();
-    size_t laserCloudSurroundNum = _laserCloudSurroundInd.size();
-    for (int i = 0; i < laserCloudSurroundNum; i++) {
-      size_t ind = _laserCloudSurroundInd[i];
-      *_laserCloudSurround += *_laserCloudCornerArray[ind];
-      *_laserCloudSurround += *_laserCloudSurfArray[ind];
+    for (int i = 0; i < _laserCloudNum; i++) {
+      *_laserCloudSurround += *_laserCloudCornerArray[i];
+      *_laserCloudSurround += *_laserCloudSurfArray[i];
     }
 
     // down size map cloud
