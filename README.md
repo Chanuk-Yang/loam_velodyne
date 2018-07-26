@@ -7,6 +7,12 @@ All sources were taken from [ROS documentation](http://docs.ros.org/indigo/api/l
 
 Ask questions [here](https://github.com/laboshinl/loam_velodyne/issues/3).
 
+## Installation
+
+```
+$ sudo apt-get install ros-kinetic-pcl-ros ros-kinetic-geometry2 ros-kinetic-ros-numpy
+```
+
 ## How to build with catkin:
 
 ```
