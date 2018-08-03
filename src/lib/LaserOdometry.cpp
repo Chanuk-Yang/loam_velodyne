@@ -37,7 +37,7 @@
 #include <pcl/filters/filter.h>
 #include <Eigen/Eigenvalues>
 #include <Eigen/QR>
-
+#include <iostream>
 
 namespace loam {
 
@@ -460,9 +460,11 @@ void LaserOdometry::process()
     _lastCornerKDTree.setInputCloud(_lastCornerCloud);
     _lastSurfaceKDTree.setInputCloud(_lastSurfaceCloud);
 
-    _transformSum.rot_x += _imuPitchStart;
-    _transformSum.rot_z += _imuRollStart;
-
+    _transformSum.rot_x += 1.57;//_imuPitchStart;
+    _transformSum.rot_z += 0;//_imuRollStart;
+    // _transformSum.rot_x += 1.45;//_imuPitchStart at hdl_400
+    // _transformSum.rot_z += -0.1;//_imuRollStart  at hdl_400
+    _transformSum.pos.x() += 0;
     _systemInited = true;
     return;
   }
